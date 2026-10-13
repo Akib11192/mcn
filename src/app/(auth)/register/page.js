@@ -145,7 +145,7 @@ export default function RegisterPage() {
         </div>
 
         <p className="mt-6 text-center text-xs text-zinc-600">
-          © {new Date().getFullYear()} MCN Network. All rights reserved.
+          © 2026 MCN Network. All rights reserved.
         </p>
       </div>
     </main>

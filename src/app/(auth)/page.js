@@ -1,13 +1,14 @@
+import { Headline } from "@/components/auth";
 import Link from "next/link";
 
 const Page = () => {
+  const headLineWords = ["welcom", "to", "the", "MCN", "network"];
+
   return (
     <main className="flex min-h-screen flex-col bg-black md:flex-row">
       {/* Left side: Brand */}
-      <section className="flex flex-1 items-center justify-center px-6 py-12 md:px-8">
-        <h1 className="text-center text-3xl font-bold text-white sm:text-4xl md:text-5xl">
-          Welcome to the <span className="text-red-600">MCN</span> Network
-        </h1>
+      <section className="flex flex-1 items-center justify-center px-10 py-12 md:px-14 line-clamp-3">
+        <Headline headlineText={headLineWords} />
       </section>
 
       {/* Right side: Authentication */}

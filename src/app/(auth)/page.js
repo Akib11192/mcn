@@ -2,7 +2,7 @@ import { Headline } from "@/components/auth";
 import Link from "next/link";
 
 const Page = () => {
-  const headLineWords = ["welcom", "to", "the", "MCN", "network"];
+  const headLineWords = ["welcome", "to", "the", "MCN", "network"];
 
   return (
     <main className="flex min-h-screen flex-col bg-black md:flex-row">

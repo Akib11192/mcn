@@ -59,12 +59,20 @@ export default function LoginPage() {
 
             {/* Password */}
             <div>
-              <label
-                htmlFor="password"
-                className="mb-2 block text-sm font-medium text-zinc-300"
-              >
-                Password
-              </label>
+              <div className="flex justify-between">
+                <label
+                  htmlFor="password"
+                  className="mb-2 block text-sm font-medium text-zinc-300"
+                >
+                  Password
+                </label>
+                <Link
+                  href="/forgot-password"
+                  className="text-amber-200 text-sm"
+                >
+                  Forgot Password
+                </Link>
+              </div>
 
               <div className="relative">
                 <input

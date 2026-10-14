@@ -1,6 +1,22 @@
+"use client";
 import Link from "next/link";
 
+import { useState } from "react";
+
 export default function LoginPage() {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+  const [showPassword, setShowPassword] = useState(false);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
   return (
     <main className="flex min-h-screen items-center justify-center bg-black px-4 py-10 text-white">
       <div className="w-full max-w-md">
@@ -43,31 +59,35 @@ export default function LoginPage() {
 
             {/* Password */}
             <div>
-              <div className="mb-2 flex items-center justify-between gap-3">
-                <label
-                  htmlFor="password"
-                  className="text-sm font-medium text-zinc-200"
-                >
-                  Password
-                </label>
+              <label
+                htmlFor="password"
+                className="mb-2 block text-sm font-medium text-zinc-300"
+              >
+                Password
+              </label>
 
-                <Link
-                  href="/forgot-password"
-                  className="text-sm text-amber-300 hover:text-amber-200"
+              <div className="relative">
+                <input
+                  id="password"
+                  name="password"
+                  type={showPassword ? "text" : "password"}
+                  autoComplete="new-password"
+                  placeholder="Enter yout password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  required
+                  className="w-full rounded-xl border border-zinc-800 bg-black px-4 py-3 pr-20 text-sm text-white outline-none transition placeholder:text-zinc-600 focus:border-amber-400 focus:ring-2 focus:ring-amber-400/10"
+                />
+
+                <button
+                  type="button"
+                  onClick={() => setShowPassword((prev) => !prev)}
+                  className="absolute inset-y-0 right-3 text-xs font-medium text-zinc-400 transition hover:text-amber-400"
+                  aria-label={showPassword ? "Hide password" : "Show password"}
                 >
-                  Forgot password?
-                </Link>
+                  {showPassword ? "Hide" : "Show"}
+                </button>
               </div>
-
-              <input
-                id="password"
-                name="password"
-                type="password"
-                autoComplete="current-password"
-                placeholder="Enter your password"
-                required
-                className="w-full rounded-xl border border-zinc-800 bg-black px-4 py-3 text-white outline-none transition placeholder:text-zinc-600 focus:border-amber-300 focus:ring-1 focus:ring-amber-300"
-              />
             </div>
 
             {/* Submit */}

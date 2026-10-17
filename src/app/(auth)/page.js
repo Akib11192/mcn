@@ -1,4 +1,4 @@
-import { Headline, Packages } from "@/components/auth";
+import { Headline, InstallButton, Packages } from "@/components/auth";
 import Link from "next/link";
 
 export default function Page() {
@@ -86,6 +86,9 @@ export default function Page() {
                 <span>Create an account</span>
                 <span className="text-xl text-amber-400">↗</span>
               </Link>
+              <div className="mt-6 flex justify-center">
+                <InstallButton />
+              </div>
             </div>
 
             <div className="my-7 flex items-center gap-4">

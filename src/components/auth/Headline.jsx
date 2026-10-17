@@ -1,32 +1,22 @@
-"use client";
-
-import { useEffect, useState } from "react";
-
-const Headline = ({ headlineText }) => {
-  const [words, setWords] = useState([]);
-
-  useEffect(() => {
-    const coloredWords = headlineText.map((word) => ({
-      text: word,
-      color:
-        "#" +
-        Math.floor(Math.random() * 16777215)
-          .toString(16)
-          .padStart(6, "0"),
-    }));
-
-    setWords(coloredWords);
-  }, [headlineText]);
-
+export default function Headline({ headlineText = [] }) {
   return (
-    <h1 className="text-center text-4xl font-bold md:text-6xl">
-      {words.map((word, index) => (
-        <span key={index} style={{ color: word.color }}>
-          {word.text}{" "}
-        </span>
-      ))}
+    <h1 className="text-center text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl lg:text-left">
+      {headlineText.map((word, index) => {
+        const highlighted = word === "MCN" || word === "Network";
+
+        return (
+          <span
+            key={`${word}-${index}`}
+            className={
+              highlighted
+                ? "mr-2 inline-block bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent"
+                : "mr-2 inline-block text-white"
+            }
+          >
+            {word}
+          </span>
+        );
+      })}
     </h1>
   );
-};
-
-export default Headline;
+}
